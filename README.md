@@ -1,25 +1,18 @@
-# Student Management (Spring Boot + Thymeleaf + SQLite)
+# Student Management System (CLI)
 
-This is a beginner-friendly Student Management System that runs in the browser using Spring Boot and Thymeleaf. It uses an SQLite database file `students.db` created at the project root.
+Project reorganized to a tidy structure:
 
-Quick start (Codespaces / any environment with Maven & Java 17+):
+- `src/` — Java source files (`Student.java`, `StudentManagementSystem.java`)
+- `lib/` — third-party JARs (SQLite JDBC + SLF4J)
+- `students.db` — SQLite database file (created at runtime)
 
-1. Open a terminal in the project root.
-2. Run:
+Quick build & run (from project root):
 
 ```bash
-mvn spring-boot:run
+javac -d bin -cp "lib/*" src/*.java
+java -cp "bin:lib/*" StudentManagementSystem
 ```
 
-3. Open the forwarded port `8080` in the browser (Codespaces forwards automatically).
-
-What you can do:
-- Add new students
-- List all students
-- Edit existing students
-- Delete students
-
 Notes:
-- The database table is created automatically at startup if it does not exist.
-- If a form submission fails validations, a friendly error message is shown.
-# java-project
+- `lib/*` already contains the required jars. If you add/remove jars, update the classpath accordingly.
+- `students.db` persists student records between runs.

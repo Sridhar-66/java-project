@@ -1,0 +1,8 @@
+bin/
+students.db
+*.class
+.DS_Store
+/.idea
+/.vscode
+target/
+*.log
